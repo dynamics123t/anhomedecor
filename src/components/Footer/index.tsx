@@ -15,7 +15,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">Xưởng: Thủ đức</a>
+                <a href="#" className="hover:underline">Xưởng: phường Long Phước, Quận 9, Hồ Chí Minh, Việt Nam</a>
               </li>
             </ul>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
             <h2 className="mb-6 text-sm font-semibold uppercase">Thời gian làm việc:</h2>
             <ul className="text-white font-medium">
               <li className="mb-4">
-                <a href="#" className="hover:underline">Thứ 2 đến CN: Từ 8h đến 17h</a>
+                <a href="#" className="hover:underline">Thứ 2 đến 7: Từ 8h đến 17h</a>
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">Online: Hỗ trợ 24/7</a>
@@ -72,7 +72,7 @@ export default function Footer() {
                 <a href="#" className="hover:underline">Hotline: 0933 68 79 89</a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline">Email: lanhainfo@gmail.com</a>
+                <a href="#" className="hover:underline">Email: an79decor@gmail.com</a>
               </li>
             </ul>
           </div>
