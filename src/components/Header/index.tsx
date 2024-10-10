@@ -1,12 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Trạng thái mở dropdown
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleNavigate = (path: string) => {
+    router.push(path);
+    setIsDropdownOpen(false); // Đóng dropdown sau khi chọn một mục
+  };
 
   return (
     <header className="bg-white shadow-md z-10">
@@ -112,10 +122,10 @@ export default function Header() {
         </div>
 
         {/* Menu button for mobile */}
-        <div className="flex md:hidden">
+        <div className="flex md:hidden relative">
           <button
             className="text-orange-500 hover:text-orange-700 focus:outline-none"
-            onClick={() => router.push("/menu")} // Bạn có thể thay thế điều này bằng một menu bật lên.
+            onClick={toggleDropdown} // Mở dropdown khi nhấp vào nút
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -132,6 +142,38 @@ export default function Header() {
               />
             </svg>
           </button>
+
+          {/* Dropdown Menu */}
+          {isDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
+              <ul className="py-2">
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/phongkhach")}
+                >
+                  Phòng khách
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/phongngu")}
+                >
+                  Phòng ngủ
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/phongbep")}
+                >
+                  Phòng bếp
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/mau-nha-dep")}
+                >
+                  Mẫu nhà đẹp
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
