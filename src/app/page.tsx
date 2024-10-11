@@ -4,6 +4,7 @@ import React, { useState } from "react";
 // import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -24,7 +25,6 @@ const VideoComponent = () => {
   return (
     <div className="bg-white">
       <Header />
-
       {/* Carousel */}
       <div className="flex justify-center items-center mt-5">
         <Carousel className="w-full max-w-none">

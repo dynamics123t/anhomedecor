@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
@@ -59,22 +58,58 @@ export default function Header() {
             </button>
           </form>
         </div>
-
+        
         {/* Menu - Responsive */}
         <div className="hidden md:flex">
           <nav className="flex items-center justify-center space-x-6">
             <div
-              onClick={() => router.push("/")}
+              onClick={toggleDropdown} 
               className="cursor-pointer relative group"
             >
-              <span className="relative text-lg font-semibold">
-                Mẫu nhà đẹp
+              <div className="flex">
+              <span className="relative text-lg font-semibold mr-2">
+                Về ANHOME
+                
                 <span
                   className={`inline-block h-[1px] bg-black absolute left-0 -bottom-1
               ${pathname === "/" ? "w-full" : "w-0 group-hover:w-full"}
               transition-all ease duration-300`}
                 ></span>
               </span>
+              
+             </div>
+             {isDropdownOpen && (
+            <div className="absolute mt-2 w-48  bg-white border border-gray-200 rounded-lg shadow-lg z-20">
+              <ul className="py-2">
+              <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/mau-nha-dep")}
+                >
+                  AnHome
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/quytrinh")}
+                >
+                  Quy Trình
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/phongngu")}
+                >
+                  Xưởng nội thất
+                </li>
+                <li
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleNavigate("/tuyendung")}
+                >
+                  Tuyển dụng
+                </li>
+                
+              </ul>
+            </div>
+          )}
+              
             </div>
 
             <div
@@ -103,6 +138,7 @@ export default function Header() {
               transition-all ease duration-300`}
                 ></span>
               </span>
+             
             </div>
 
             <div
@@ -203,6 +239,7 @@ export default function Header() {
           </button>
         </form>
       </div>
+      
     </header>
   );
 }
