@@ -3,18 +3,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Trạng thái mở dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for the first dropdown
+  const [isSubDropdownOpen, setIsSubDropdownOpen] = useState(false); // State for the nested dropdown
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const toggleSubDropdown = () => {
+    setIsSubDropdownOpen(!isSubDropdownOpen);
+  };
+
   const handleNavigate = (path: string) => {
     router.push(path);
-    setIsDropdownOpen(false); // Đóng dropdown sau khi chọn một mục
+    setIsDropdownOpen(false); // Close dropdown after navigating
+    setIsSubDropdownOpen(false); // Close nested dropdown if it was open
   };
 
   return (
@@ -57,57 +64,71 @@ export default function Header() {
             </button>
           </form>
         </div>
-        
+
         <div className="hidden md:flex">
           <nav className="flex items-center justify-center space-x-6">
             <div
-              onClick={toggleDropdown} 
+              onClick={toggleDropdown}
               className="cursor-pointer relative group"
             >
               <div className="flex">
-              <span className="relative text-lg font-semibold mr-2">
-                Về ANHOME
-                
-                <span
-                  className={`inline-block h-[1px] bg-black absolute left-0 -bottom-1
+                <span className="relative text-lg font-semibold mr-2">
+                  Về ANHOME
+                  <span
+                    className={`inline-block h-[1px] bg-black absolute left-0 -bottom-1
               ${pathname === "/" ? "w-full" : "w-0 group-hover:w-full"}
               transition-all ease duration-300`}
-                ></span>
-              </span>
-              
-             </div>
-             {isDropdownOpen && (
-            <div className="absolute mt-2 w-48  bg-white border border-gray-200 rounded-lg shadow-lg z-20">
-              <ul className="py-2">
-              <li
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleNavigate("/mau-nha-dep")}
-                >
-                  AnHome
-                </li>
-                <li
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleNavigate("/quytrinh")}
-                >
-                  Quy Trình
-                </li>
-                <li
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleNavigate("/phongngu")}
-                >
-                  Xưởng nội thất
-                </li>
-                <li
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleNavigate("/tuyendung")}
-                >
-                  Tuyển dụng
-                </li>
-                
-              </ul>
-            </div>
-          )}
-              
+                  ></span>
+                </span>
+              </div>
+              {isDropdownOpen && (
+                <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
+                  <ul className="py-2">
+                    <li
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                      onClick={toggleSubDropdown} // Toggle the nested dropdown
+                    >
+                      AnHome
+                    </li>
+                    {isSubDropdownOpen && (
+                      <div className="mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+                        <ul className="py-2">
+                          <li
+                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                            onClick={() => handleNavigate("/mau-nha-dep")}
+                          >
+                            Mẫu nhà đẹp
+                          </li>
+                          <li
+                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                            onClick={() => handleNavigate("/quytrinh")}
+                          >
+                            Quy Trình
+                          </li>
+                          <li
+                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                            onClick={() => handleNavigate("/phongngu")}
+                          >
+                            Xưởng nội thất
+                          </li>
+                          <li
+                            className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                            onClick={() => handleNavigate("/tuyendung")}
+                          >
+                            Tuyển dụng
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                    <li
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                      onClick={() => handleNavigate("/quytrinh")}
+                    >
+                      Quy Trình
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
 
             <div
@@ -136,7 +157,6 @@ export default function Header() {
               transition-all ease duration-300`}
                 ></span>
               </span>
-             
             </div>
 
             <div
@@ -159,7 +179,7 @@ export default function Header() {
         <div className="flex md:hidden relative">
           <button
             className="text-orange-500 hover:text-orange-700 focus:outline-none"
-            onClick={toggleDropdown} // Mở dropdown khi nhấp vào nút
+            onClick={toggleDropdown} // Open dropdown on button click
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +202,42 @@ export default function Header() {
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
               <ul className="py-2">
                 <li
+                  className="block px-4 py-2 text-orange-700 hover:bg-gray-100 cursor-pointer"
+                  onClick={toggleSubDropdown} // Toggle the nested dropdown
+                >
+                  Về Anhome
+                </li>
+                {isSubDropdownOpen && (
+                  <div className="mt-1 w-48 bg-gray-200 border border-gray-200 rounded-lg shadow-lg">
+                    <ul className="py-2">
+                      <li
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleNavigate("/mau-nha-dep")}
+                      >
+                        Mẫu nhà đẹp
+                      </li>
+                      <li
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleNavigate("/quytrinh")}
+                      >
+                        Quy Trình
+                      </li>
+                      <li
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleNavigate("/phongngu")}
+                      >
+                        Xưởng nội thất
+                      </li>
+                      <li
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        onClick={() => handleNavigate("/tuyendung")}
+                      >
+                        Tuyển dụng
+                      </li>
+                    </ul>
+                  </div>
+                )}
+                <li
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
                   onClick={() => handleNavigate("/phongkhach")}
                 >
@@ -198,12 +254,6 @@ export default function Header() {
                   onClick={() => handleNavigate("/phongbep")}
                 >
                   Phòng bếp
-                </li>
-                <li
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleNavigate("/mau-nha-dep")}
-                >
-                  Mẫu nhà đẹp
                 </li>
               </ul>
             </div>
@@ -237,7 +287,6 @@ export default function Header() {
           </button>
         </form>
       </div>
-      
     </header>
   );
 }
