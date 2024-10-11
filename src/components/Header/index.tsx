@@ -32,7 +32,6 @@ export default function Header() {
           <h1 className="font-bold text-lg ml-4">ANHOME DECOR</h1>
         </div>
 
-        {/* Thanh tìm kiếm */}
         <div className="hidden md:flex flex-1 max-w-[450px] mx-8">
           <form className="relative w-full">
             <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
@@ -59,7 +58,6 @@ export default function Header() {
           </form>
         </div>
         
-        {/* Menu - Responsive */}
         <div className="hidden md:flex">
           <nav className="flex items-center justify-center space-x-6">
             <div

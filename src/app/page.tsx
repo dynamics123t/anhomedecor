@@ -25,16 +25,15 @@ const VideoComponent = () => {
   return (
     <div className="bg-white">
       <Header />
-      {/* Carousel */}
       <div className="flex justify-center items-center mt-5">
         <Carousel className="w-full max-w-none">
           <CarouselContent>
             {[
-              "/images/1.webp",
-              "/images/2.webp",
-              "/images/3.webp",
-              "/images/4.webp",
-              "/images/5.webp",
+              "/images/1.png",
+              "/images/slide2.png",
+              "/images/slide3.png",
+              "/images/slide4.png",
+              "/images/slide5.png",
             ].map((url, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
@@ -56,7 +55,6 @@ const VideoComponent = () => {
         </Carousel>
       </div>
 
-      {/* Section Content */}
       <div className="flex flex-col lg:flex-row min-h-screen items-center text-dark p-4 lg:p-32">
         <div className="flex flex-col w-full lg:w-1/2 items-center self-center">
           <div className="py-2 w-full mx-auto flex flex-col items-center justify-center text-center sm:py-0">
@@ -88,7 +86,6 @@ const VideoComponent = () => {
         </div>
       </div>
 
-      {/* Projects Grid */}
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-2">
           Cá nhân hóa không gian
@@ -120,7 +117,6 @@ const VideoComponent = () => {
         </div>
       </div>
 
-      {/* Video Section */}
       <div className="flex flex-col lg:flex-row items-center justify-center mt-8 px-4 lg:px-0">
         <div className="w-full lg:w-1/2 text-center p-4 flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold text-gray-800">

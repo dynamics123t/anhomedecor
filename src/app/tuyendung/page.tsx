@@ -12,7 +12,7 @@ export default function Tuyendung() {
 
       <div className="flex flex-col justify-center items-center min-h-screen py-10">
         <Image
-          className="mx-auto w-full max-w-4xl"
+          className="mx-auto w-full max-w-4xl rounded-xl"
           src="/images/hiring.png"
           width={1000}
           height={1000}

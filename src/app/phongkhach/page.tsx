@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 export default function ImageGrid() {
-  // List of image URLs
   const imageUrls = [
     "/pk/pk1.jpg",
     "/pk/pk2.jpg",
@@ -57,12 +56,9 @@ export default function ImageGrid() {
   ];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Function to handle click and show popup
   const handleImageClick = (url: string) => {
     setSelectedImage(url);
   };
-
-  // Function to close the popup
   const closePopup = () => {
     setSelectedImage(null);
   };
@@ -77,7 +73,6 @@ export default function ImageGrid() {
         </h1>
 
         <div className="container mx-auto px-4">
-          {/* Grid layout with responsive classes */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {imageUrls.map((url, index) => (
               <div
@@ -95,7 +90,6 @@ export default function ImageGrid() {
           </div>
         </div>
 
-        {/* Popup Modal */}
         {selectedImage && (
           <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
             <div className="relative bg-white p-4 rounded-lg">
@@ -115,7 +109,6 @@ export default function ImageGrid() {
         )}
       </div>
 
-      {/* Contact section */}
       <h1 className="text-4xl font-bold text-center my-8 text-orange-700">
         LIÊN HỆ TƯ VẤN
       </h1>
