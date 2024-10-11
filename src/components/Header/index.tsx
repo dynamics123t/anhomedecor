@@ -72,7 +72,8 @@ export default function Header() {
               className="cursor-pointer relative group"
             >
               <div className="flex">
-                <span className="relative text-lg font-semibold mr-2">
+                <span className="relative text-lg font-semibold mr-2"
+                 onClick={toggleSubDropdown}>
                   Về ANHOME
                   <span
                     className={`inline-block h-[1px] bg-black absolute left-0 -bottom-1
@@ -80,18 +81,11 @@ export default function Header() {
               transition-all ease duration-300`}
                   ></span>
                 </span>
+             
               </div>
               {isDropdownOpen && (
                 <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
-                  <ul className="py-2">
-                    <li
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                      onClick={toggleSubDropdown} // Toggle the nested dropdown
-                    >
-                      AnHome
-                    </li>
                     {isSubDropdownOpen && (
-                      <div className="mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <ul className="py-2">
                           <li
                             className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
@@ -118,15 +112,7 @@ export default function Header() {
                             Tuyển dụng
                           </li>
                         </ul>
-                      </div>
                     )}
-                    <li
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                      onClick={() => handleNavigate("/quytrinh")}
-                    >
-                      Quy Trình
-                    </li>
-                  </ul>
                 </div>
               )}
             </div>
@@ -153,7 +139,9 @@ export default function Header() {
                 Phòng khách
                 <span
                   className={`inline-block h-[1px] bg-black absolute left-0 -bottom-1
-              ${pathname === "/phongkhach" ? "w-full" : "w-0 group-hover:w-full"}
+              ${
+                pathname === "/phongkhach" ? "w-full" : "w-0 group-hover:w-full"
+              }
               transition-all ease duration-300`}
                 ></span>
               </span>
@@ -202,7 +190,7 @@ export default function Header() {
             <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-20">
               <ul className="py-2">
                 <li
-                  className="block px-4 py-2 text-orange-700 hover:bg-gray-100 cursor-pointer"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
                   onClick={toggleSubDropdown} // Toggle the nested dropdown
                 >
                   Về Anhome
