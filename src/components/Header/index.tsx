@@ -89,7 +89,7 @@ export default function Header() {
                         <ul className="py-2">
                           <li
                             className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                            onClick={() => handleNavigate("/mau-nha-dep")}
+                            onClick={() => handleNavigate("/maunhadep")}
                           >
                             Mẫu nhà đẹp
                           </li>
@@ -200,7 +200,7 @@ export default function Header() {
                     <ul className="py-2">
                       <li
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => handleNavigate("/mau-nha-dep")}
+                        onClick={() => handleNavigate("/maunhadep")}
                       >
                         Mẫu nhà đẹp
                       </li>

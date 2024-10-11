@@ -61,7 +61,7 @@ export default function ImageGrid() {
 
       <div className="bg-gray-100 min-h-screen py-10">
         <h1 className="text-4xl font-bold text-center mb-8">
-          Hình Ảnh Thực Tế Thi Công Nội Thất Phòng Khách Đẹp, Hiện Đại
+          Hình Ảnh Thực Tế Thi Công Nội Thất Phòng Bếp Đẹp, Hiện Đại
         </h1>
 
         <div className="container mx-auto px-4">

@@ -14,6 +14,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const VideoComponent = () => {
   const [mainVideoId, setMainVideoId] = useState("Z71pBG3WEoY");
@@ -95,11 +96,11 @@ const VideoComponent = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"].map(
+          {["pk1.jpg", "pk40.jpg", "pk10.jpg", "pk15.jpg", "pk20.jpg", "pk25.jpg"].map(
             (imgSrc, index) => (
               <div className="relative overflow-hidden group" key={index}>
                 <img
-                  src={`/images/${imgSrc}`}
+                  src={`/pk/${imgSrc}`}
                   alt={`Image ${index + 1}`}
                   className="w-full h-64 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                 />
@@ -112,13 +113,14 @@ const VideoComponent = () => {
         </div>
         <div className="text-center mt-6">
           <Button variant="link" className="text-orange-700">
-            Xem thêm
+            <Link href="/maunhadep">Xem thêm</Link>
+            
           </Button>
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-center mt-8 px-4 lg:px-0">
-        <div className="w-full lg:w-1/2 text-center p-4 flex flex-col items-center justify-center">
+        <div className="w-full lg:w-1/4 text-center p-4 flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold text-gray-800">
             Đơn vị thi công uy tín
           </h2>
@@ -128,10 +130,10 @@ const VideoComponent = () => {
             src={`https://www.youtube.com/embed/${mainVideoId}`}
             frameBorder="0"
             width="100%"
-            height="300px"
+            height="500px"
             allowFullScreen
           ></iframe>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-screen-lg mt-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-screen-lg my-3">
             {["Z71pBG3WEoY", "3ItE2e0zheE", "KxrHsF_SEOI", "1SxJHLTMo5Y"].map(
               (videoId, index) => (
                 <div
@@ -147,10 +149,7 @@ const VideoComponent = () => {
                     allowFullScreen
                     className="w-full h-full"
                   />
-                  <div className="p-4 text-center">
-                    <h3 className="text-lg font-semibold">Item {index + 1}</h3>
-                    <p className="text-gray-600">Mô tả cho item {index + 1}</p>
-                  </div>
+                 
                 </div>
               )
             )}

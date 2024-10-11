@@ -5,9 +5,90 @@ import Footer from "@/components/Footer";
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function ImageGrid() {
-  // List of image URLs
+export default function MauNhaDep() {
   const imageUrls = [
+    "/pk/pk1.jpg",
+    "/pk/pk2.jpg",
+    "/pk/pk3.jpg",
+    "/pk/pk4.jpg",
+    "/pk/pk5.jpg",
+    "/pk/pk7.jpg",
+    "/pk/pk8.jpg",
+    "/pk/pk9.jpg",
+    "/pk/pk10.jpg",
+    "/pk/pk11.jpg",
+    "/pk/pk12.jpg",
+    "/pk/pk13.jpg",
+    "/pk/pk14.jpg",
+    "/pk/pk15.jpg",
+    "/pk/pk16.jpg",
+    "/pk/pk17.jpg",
+    "/pk/pk18.jpg",
+    "/pk/pk19.jpg",
+    "/pk/pk20.jpg",
+    "/pk/pk21.jpg",
+    "/pk/pk22.jpg",
+    "/pk/pk23.jpg",
+    "/pk/pk24.jpg",
+    "/pk/pk25.jpg",
+    "/pk/pk26.jpg",
+    "/pk/pk27.jpg",
+    "/pk/pk28.jpg",
+    "/pk/pk29.jpg",
+    "/pk/pk30.jpg",
+    "/pk/pk31.jpg",
+    "/pk/pk32.jpg",
+    "/pk/pk33.jpg",
+    "/pk/pk34.jpg",
+    "/pk/pk35.jpg",
+    "/pk/pk36.jpg",
+    "/pk/pk37.jpg",
+    "/pk/pk38.jpg",
+    "/pk/pk39.jpg",
+    "/pk/pk40.jpg",
+    "/pk/pk41.jpg",
+    "/pk/pk42.jpg",
+    "/pk/pk43.jpg",
+    "/pk/pk44.jpg",
+    "/pk/pk45.jpg",
+    "/pk/pk46.jpg",
+    "/pk/pk47.jpg",
+    "/pb/pb1.jpg",
+    "/pb/pb2.jpg",
+    "/pb/pb3.jpg",
+    "/pb/pb4.jpg",
+    "/pb/pb5.jpg",
+    "/pb/pb6.jpg",
+    "/pb/pb7.jpg",
+    "/pb/pb8.jpg",
+    "/pb/pb9.jpg",
+    "/pb/pb10.jpg",
+    "/pb/pb11.jpg",
+    "/pb/pb12.jpg",
+    "/pb/pb13.jpg",
+    "/pb/pb14.jpg",
+    "/pb/pb15.jpg",
+    "/pb/pb16.jpg",
+    "/pb/pb17.jpg",
+    "/pb/pb18.jpg",
+    "/pb/pb19.jpg",
+    "/pb/pb20.jpg",
+    "/pb/pb21.jpg",
+    "/pb/pb22.jpg",
+    "/pb/pb23.jpg",
+    "/pb/pb24.jpg",
+    "/pb/pb25.jpg",
+    "/pb/pb26.jpg",
+    "/pb/pb27.jpg",
+    "/pb/pb28.jpg",
+    "/pb/pb29.jpg",
+    "/pb/pb30.jpg",
+    "/pb/pb31.jpg",
+    "/pb/pb32.jpg",
+    "/pb/pb33.jpg",
+    "/pb/pb34.jpg",
+    "/pb/pb35.jpg",
+    "/pb/pb36.jpg",
     "/pn/pn1.jpg",
     "/pn/pn2.jpg",
     "/pn/pn3.jpg",
@@ -45,15 +126,11 @@ export default function ImageGrid() {
     "/pn/pn35.jpg",
     "/pn/pn36.jpg",
   ];
-
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Function to handle click and show popup
   const handleImageClick = (url: string) => {
     setSelectedImage(url);
   };
-
-  // Function to close the popup
   const closePopup = () => {
     setSelectedImage(null);
   };
@@ -62,14 +139,13 @@ export default function ImageGrid() {
     <div>
       <Header />
 
-      <div className="bg-gray-100 min-h-screen py-10">
+      <div className="min-h-screen py-10">
         <h1 className="text-4xl font-bold text-center mb-8">
-          Hình Ảnh Thực Tế Thi Công Nội Thất Phòng Ngủ Đẹp, Hiện Đại
+        Những công trình thực tế của AnHome
         </h1>
 
         <div className="container mx-auto px-4">
-          {/* Grid layout with responsive classes */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {imageUrls.map((url, index) => (
               <div
                 key={index}
@@ -86,7 +162,6 @@ export default function ImageGrid() {
           </div>
         </div>
 
-        {/* Popup Modal */}
         {selectedImage && (
           <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
             <div className="relative bg-white p-4 rounded-lg">
@@ -106,7 +181,6 @@ export default function ImageGrid() {
         )}
       </div>
 
-      {/* Contact section */}
       <h1 className="text-4xl font-bold text-center my-8 text-orange-700">
         LIÊN HỆ TƯ VẤN
       </h1>
